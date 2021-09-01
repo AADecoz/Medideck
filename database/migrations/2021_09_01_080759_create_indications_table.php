@@ -16,6 +16,7 @@ class CreateIndicationsTable extends Migration
         Schema::create('indications', function (Blueprint $table) {
             $table->id('indication_id');
             $table->string('indication_name');
+            $table->engine = 'InnoDB';
         });
     }
 

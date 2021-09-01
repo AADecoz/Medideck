@@ -16,26 +16,26 @@ class CreateRecordsTable extends Migration
         Schema::create('records', function (Blueprint $table) {
             $table->id('record_id');
             $table->string('theme');
-            $table->string('product');
-            $table->string('atc');
+//            $table->unsignedInteger('product');
+//            $table->unsignedInteger('atc');
 //            $table->foreignId('format')->constrained();
 //            $table->foreignId('subformat')->constrained();
 //            $table->foreignId('media')->constrained();
             $table->dateTime('starttime');
             $table->dateTime('endtime');
-            $table->string('target');
-            $table->string('sender');
-            $table->string('indication');
+//            $table->unsignedInteger('target');
+//            $table->unsignedInteger('sender');
+//            $table->unsignedInteger('indication');
 //            $table->foreignId('image');
 //            $table->rememberToken();
             $table->timestamps();
 
 
-            $table->foreign('product')->references('product_name')->on('products');
-            $table->foreign('atc')->references('atccode')->on('atccodes');
-            $table->foreign('target')->references('target_name')->on('targets');
-            $table->foreign('sender')->references('sender_name')->on('senders');
-            $table->foreign('indication')->references('indication_name')->on('indications');
+            $table->foreignId('product_id')->constrained('products', 'product_id');
+            $table->foreignId('atc_id')->constrained('atccodes', 'atc_id');
+            $table->foreignId('target_id')->constrained('targets', 'target_id');
+            $table->foreignId('sender_id')->constrained('senders', 'sender_id');
+            $table->foreignId('indication_id')->constrained('indications', 'indication_id');
 
 
             $table->engine = 'InnoDB';

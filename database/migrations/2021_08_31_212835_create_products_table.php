@@ -13,18 +13,21 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id('product_id');
-            $table->string('product_name');
-            $table->string('atc');
-            $table->string('sender');
+        if (!Schema::hasTable('products')) {
+            Schema::create('products', function (Blueprint $table) {
+                $table->engine = 'InnoDB';
+                $table->id('product_id');
+                $table->string('product_name');
+                $table->unique('product_name');
+            });
+        }
 
+        Schema::table('products', function (Blueprint $table){
+            $table->foreignId('atc_id')->constrained('atccodes','atc_id');
+            $table->foreignId('sender_id')->constrained('senders', 'sender_id');
 
-            $table->foreign('atc')->references('atc_code')->on('atccodes');
-            $table->foreign('sender')->references('sender_name')->on('senders');
-            $table->unique('product_name');
-            $table->engine = 'InnoDB';
         });
+
     }
 
     /**
