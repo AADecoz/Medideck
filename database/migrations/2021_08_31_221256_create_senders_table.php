@@ -14,8 +14,8 @@ class CreateSendersTable extends Migration
     public function up()
     {
         Schema::create('senders', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->string('sender');
+            $table->id('sender_id');
+            $table->string('sender_name');
             $table->engine = 'InnoDB';
         });
     }

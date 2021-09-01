@@ -14,10 +14,15 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id('productid')->primary('productid');
-            $table->string('product');
-            $table->foreignId('atccode')->constrained('atccodes');
-            $table->foreignId('sender')->constrained();
+            $table->id('product_id');
+            $table->string('product_name');
+            $table->string('atc');
+            $table->string('sender');
+
+
+            $table->foreign('atc')->references('atc_code')->on('atccodes');
+            $table->foreign('sender')->references('sender_name')->on('senders');
+            $table->unique('product_name');
             $table->engine = 'InnoDB';
         });
     }

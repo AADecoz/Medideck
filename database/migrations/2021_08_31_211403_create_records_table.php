@@ -14,21 +14,30 @@ class CreateRecordsTable extends Migration
     public function up()
     {
         Schema::create('records', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id('record_id');
             $table->string('theme');
-            $table->foreign('products')->references('productid');
-            $table->foreign('atccodes')->constrained();
+            $table->string('product');
+            $table->string('atc');
 //            $table->foreignId('format')->constrained();
 //            $table->foreignId('subformat')->constrained();
 //            $table->foreignId('media')->constrained();
             $table->dateTime('starttime');
             $table->dateTime('endtime');
-            $table->foreignId('target')->constrained();
-            $table->foreignId('sender')->constrained();
-            $table->foreignId('indication')->constrained();
+            $table->string('target');
+            $table->string('sender');
+            $table->string('indication');
 //            $table->foreignId('image');
 //            $table->rememberToken();
             $table->timestamps();
+
+
+            $table->foreign('product')->references('product_name')->on('products');
+            $table->foreign('atc')->references('atccode')->on('atccodes');
+            $table->foreign('target')->references('target_name')->on('targets');
+            $table->foreign('sender')->references('sender_name')->on('senders');
+            $table->foreign('indication')->references('indication_name')->on('indications');
+
+
             $table->engine = 'InnoDB';
 
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTargetsTable extends Migration
+class CreateIndicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTargetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('targets', function (Blueprint $table) {
-            $table->id('target_id');
-            $table->string('target_name');
-            $table->engine = 'InnoDB';
+        Schema::create('indications', function (Blueprint $table) {
+            $table->id('indication_id');
+            $table->string('indication_name');
         });
     }
 
@@ -27,6 +26,6 @@ class CreateTargetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('targets');
+        Schema::dropIfExists('indications');
     }
 }

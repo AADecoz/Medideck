@@ -14,9 +14,9 @@ class CreateAtccodeTable extends Migration
     public function up()
     {
         Schema::create('atccodes', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->string('atccode');
-            $table->string('atccontent');
+            $table->id('atc_id');
+            $table->string('atc_code');
+            $table->string('atc_content');
             $table->engine = 'InnoDB';
         });
     }
