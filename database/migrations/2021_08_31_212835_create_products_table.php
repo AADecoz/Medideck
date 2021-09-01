@@ -15,10 +15,10 @@ class CreateProductsTable extends Migration
     {
         if (!Schema::hasTable('products')) {
             Schema::create('products', function (Blueprint $table) {
-                $table->engine = 'InnoDB';
                 $table->id('product_id');
                 $table->string('product_name');
                 $table->unique('product_name');
+                $table->engine = 'InnoDB';
             });
         }
 

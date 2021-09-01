@@ -13,34 +13,30 @@ class CreateRecordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('records', function (Blueprint $table) {
-            $table->id('record_id');
-            $table->string('theme');
-//            $table->unsignedInteger('product');
-//            $table->unsignedInteger('atc');
+        if (!Schema::hasTable('records')) {
+            Schema::create('records', function (Blueprint $table) {
+                $table->id('record_id');
+                $table->string('theme');
 //            $table->foreignId('format')->constrained();
 //            $table->foreignId('subformat')->constrained();
 //            $table->foreignId('media')->constrained();
-            $table->dateTime('starttime');
-            $table->dateTime('endtime');
-//            $table->unsignedInteger('target');
-//            $table->unsignedInteger('sender');
-//            $table->unsignedInteger('indication');
+                $table->dateTime('starttime');
+                $table->dateTime('endtime');
 //            $table->foreignId('image');
 //            $table->rememberToken();
-            $table->timestamps();
+                $table->timestamps();
+                $table->engine = 'InnoDB';
+            });
+        }
 
-
+        Schema::table('records', function (Blueprint $table) {
             $table->foreignId('product_id')->constrained('products', 'product_id');
             $table->foreignId('atc_id')->constrained('atccodes', 'atc_id');
             $table->foreignId('target_id')->constrained('targets', 'target_id');
             $table->foreignId('sender_id')->constrained('senders', 'sender_id');
             $table->foreignId('indication_id')->constrained('indications', 'indication_id');
-
-
-            $table->engine = 'InnoDB';
-
         });
+
     }
 
     /**
@@ -48,7 +44,8 @@ class CreateRecordsTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public
+    function down()
     {
         Schema::dropIfExists('records');
     }
