@@ -15,24 +15,32 @@ return [
         'superadministrator' => [
             'users' => 'c,r,u,d',
             'payments' => 'c,r,u,d',
-            'profile' => 'r,u',
+            'profile' => 'r,u,d',
             'records' => 'c,r,u,d'
         ],
         'administrator' => [
             'users' => 'c,r,u,d',
-            'profile' => 'r,u',
+            'profile' => 'r,u,d',
             'payments' => 'c,r,u,d',
             'records' => 'c,r,u,d'
         ],
-        'user' => [
-            'profile' => 'r',
-        ],
         'moderator' => [
-            'user' => 'r,u,',
-            'profile' => 'c,r,u,',
+            'user' => 'r,u',
+            'profile' => 'c,r,u',
             'records' => 'c,r,u'
 
-        ]
+        ],
+        'specialist' => [
+            'user' => 'r',
+            'profile' => 'r,u',
+            'records' => 'c,r',
+        ],
+        'user' => [
+            'profile' => 'r,u',
+            'records' => 'r'
+        ],
+
+
     ],
 
     'permissions_map' => [

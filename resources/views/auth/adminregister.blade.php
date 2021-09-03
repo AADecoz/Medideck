@@ -13,24 +13,7 @@
             @csrf
 
             <!-- Name -->
-                @includeIf()
-                <div class="mt-4 pb-2">
-                    <x-label for="company" value="{{__('Company:')}} "/>
-                    <select name="company" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-
-                        <option value="abbott">Abbott</option>
-                        <option value="abbvie">Abbvie</option>
-                        <option value="aegerion">Aegerion Pharmaceuticals</option>
-                        <option value="abello">Alk Abello</option>
-                        <option value="amgen">Amgen</option>
-                        <option value="astellas">Astellas Pharma</option>
-                        <option value="astra">AstraZenica</option>
-                    </select>
-                </div>
-
-
-
-                <div>
+            <div>
                 <x-label for="name" :value="__('Name')" />
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
@@ -66,8 +49,10 @@
                 <div class="mt-4">
                     <x-label for="role_id" value="{{__('Register as:')}}"/>
                     <select name="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                        <option value="user" >User</option>
+                        <option value="user">User</option>
                         <option value="target">Specialist</option>
+                        <option value="moderator">Moderator</option>
+                        <option value="administrator">Admin</option>
                     </select>
                 </div>
 
