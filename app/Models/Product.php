@@ -17,9 +17,9 @@ class Product extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'product_name',
+        'atc_id',
+        'sender_id',
     ];
 
     /**
@@ -28,8 +28,7 @@ class Product extends Model
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        '',
     ];
 
     /**
@@ -38,6 +37,6 @@ class Product extends Model
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+//        'email_verified_at' => 'datetime',
     ];
 }

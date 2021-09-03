@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -17,9 +18,15 @@ class Record extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'record_id',
+        'theme',
+        'starttime',
+        'endtime',
+        'product_id',
+        'atc_id',
+        'target_id',
+        'sender_id',
+        'indication_id',
     ];
 
     /**
@@ -28,8 +35,7 @@ class Record extends Model
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        '',
     ];
 
     /**
@@ -38,6 +44,6 @@ class Record extends Model
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+//        'email_verified_at' => 'datetime',
     ];
 }

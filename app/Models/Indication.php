@@ -17,9 +17,8 @@ class Indication extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'indication_name',
+
     ];
 
     /**
@@ -28,8 +27,7 @@ class Indication extends Model
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        '',
     ];
 
     /**
@@ -38,6 +36,6 @@ class Indication extends Model
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+//        'email_verified_at' => 'datetime',
     ];
 }

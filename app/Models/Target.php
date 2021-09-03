@@ -17,9 +17,7 @@ class Target extends Model
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'target_name',
     ];
 
     /**
@@ -28,8 +26,7 @@ class Target extends Model
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        '',
     ];
 
     /**
@@ -38,6 +35,6 @@ class Target extends Model
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+//        'email_verified_at' => 'datetime',
     ];
 }
