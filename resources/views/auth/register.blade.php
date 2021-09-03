@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo class="fill-current text-gray-500" />
             </a>
         </x-slot>
 
@@ -45,12 +45,24 @@
                                 name="password_confirmation" required />
             </div>
 
+                <!-- Select Option Role Type -->
+                <div class="mt-4">
+                    <x-label for="role_id" value="{{__('Register as:')}}"/>
+                    <select name="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                        <option value="user">User</option>
+                        <option value="moderator">Moderator</option>
+                        <option value="administrator">Admin</option>
+                    </select>
+                </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
+                    {{ __('Update existing user?') }}
+                </a> <!-- reference to update -->
+                <x-button class="ml-3" style="background: rgb(0,120,98)">
+                    {{ __('Support')}}
+                </x-button>
+                <x-button class="ml-4" style="background: rgb(9,40,105)">
                     {{ __('Register') }}
                 </x-button>
             </div>

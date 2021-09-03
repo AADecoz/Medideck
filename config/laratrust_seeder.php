@@ -28,7 +28,7 @@ return [
             'profile' => 'r',
         ],
         'moderator' => [
-            'user' => 'c,r,u,',
+            'user' => 'r,u,',
             'profile' => 'c,r,u,',
             'records' => 'c,r,u'
 
