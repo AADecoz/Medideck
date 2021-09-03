@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -18,5 +19,15 @@ class DashboardController extends Controller
         } elseif (Auth::user()->hasRole('user')){
             return view('userdash');
         }
+    }
+
+    public function myprofile(){
+        return view('myprofile');
+    }
+
+    public function usermanagement(){
+
+        $user = User::all();
+        return view('usermanagement', compact('user'));
     }
 }
