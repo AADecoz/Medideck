@@ -26,8 +26,11 @@ class DashboardController extends Controller
     }
 
     public function usermanagement(){
-
+//      $subscription = Subcription::all();
         $user = User::all();
         return view('usermanagement', compact('user'));
+    }
+    public function main(){
+        return view('main');
     }
 }
