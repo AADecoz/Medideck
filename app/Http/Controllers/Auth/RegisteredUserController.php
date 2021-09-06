@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Sender;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
@@ -35,27 +37,26 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-//            'sender' => ['string'],
+            'sender' => ['string'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-//        $validator = Validator::make($request->all(), [
-//            'company' => 'required_if:Column',
+//        Validator::make($request->all(), [
+//            'sender' => Rule::requiredIf($request->user()->is_user),
 //        ]);
 
 
         $user = User::create([
-//            'sender' => $request->sender,
+            'sender' => $request->sender,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+//        $user->attachRole($request->sender_id);
         $user->attachRole($request->role_id);
-//        $user->attachRole('specialist');
-//        $user->attachRole('user');
+
 
         event(new Registered($user));
 

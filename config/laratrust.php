@@ -92,6 +92,8 @@ return [
 
         'permission' => \App\Models\Permission::class,
 
+//        'sender' => \App\Models\Sender::class
+
         /**
          * Will be used only if the teams functionality is enabled.
          */

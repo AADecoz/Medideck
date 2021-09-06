@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'index'])->name('sender');
+
+//Route::resource('sender', [\App\Http\Controllers\SenderController::class, "index"]);
+
 Route::group(['middleware'=>['auth']], function (){
     Route::get('/dashboard/dmscope', 'App\Http\Controllers\DashboardController@dmscope')->name('dashboard.dmscope');
 });

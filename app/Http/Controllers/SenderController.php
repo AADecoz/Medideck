@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use voku\helper\ASCII;
+use Illuminate\Support\Facades\DB;
+use App\Models\Sender;
 
 class SenderController extends Controller
 {
@@ -13,7 +16,8 @@ class SenderController extends Controller
      */
     public function index()
     {
-        //
+        $sender = DB::table('senders')->pluck('sender_name');
+        return view('register', compact('sender'));
     }
 
     /**
@@ -23,7 +27,7 @@ class SenderController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -34,7 +38,12 @@ class SenderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $storeData = $request->validate([
+            'sender' => 'max:128'
+        ]);
+        $sender = Sender::create($storeData);
+
+        return redirect('/register')->with('completed', 'sender registered');
     }
 
     /**

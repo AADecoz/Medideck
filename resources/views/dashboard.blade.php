@@ -19,4 +19,5 @@
             &copy; {{now()->year}}  Suncoast Management Ltd.
         </h5>
     </x-slot>
+
 </x-app-layout>
