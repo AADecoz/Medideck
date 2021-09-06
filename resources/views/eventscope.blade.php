@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Event Scope') }}
         </h2>
     </x-slot>
 
@@ -14,4 +14,9 @@
             </div>
         </div>
     </div>
+    <x-slot name="footer">
+        <h5 class="font-semibold text-md text-gray-800 leading-tight bottom-2">
+            &copy; {{now()->year}}  Suncoast Management Ltd.
+        </h5>
+    </x-slot>
 </x-app-layout>

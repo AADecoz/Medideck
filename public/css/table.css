@@ -3,12 +3,13 @@ td, th{
     padding: 8px;
 }
 
-th{
+th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: rgb(254,186,40);
+    background-color: rgb(254, 186, 40);
     color: white;
 }
+
 
 

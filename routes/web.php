@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-//Route::group(['middleware'=>['auth']], function (){
-//Route::get('main', '\App\Http\Controllers\DashboardController@main')->name('main');
-//});
+Route::group(['middleware'=>['auth']], function (){
+    Route::get('/dashboard/dmscope', 'App\Http\Controllers\DashboardController@dmscope')->name('dashboard.dmscope');
+});
 
 Route::group(['middleware'=>['auth']], function (){
     Route::get('/dashboard/eventscope', '\App\Http\Controllers\DashboardController@eventscope')->name('dashboard.eventscope');

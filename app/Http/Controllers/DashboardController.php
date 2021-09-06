@@ -40,6 +40,10 @@ class DashboardController extends Controller
         return view('eventscope');
     }
 
+    public function dmscope(){
+        return view('dmscope');
+    }
+
 //    public function sender()
 //    {
 //        $sender = Sender::all();
