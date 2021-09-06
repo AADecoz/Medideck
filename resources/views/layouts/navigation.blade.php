@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('main') }}">
+                    <a href="{{ route('welcome') }}">
                         <x-application-icon class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
@@ -17,13 +17,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                @if (Auth::user()->hasRole('user'))
-{{--                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
-{{--                        <x-nav-link :href="route('dashboard.myprofile')" :active="request()->routeIs('dashboard.myprofile')">--}}
-{{--                            {{ __('My Profile') }}--}}
-{{--                        </x-nav-link>--}}
-{{--                    </div>--}}
-                @endif
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('dashboard.eventscope')" :active="request()->routeIs('dashboard.eventscope')">
+                            {{ __('Event Scope') }}
+                        </x-nav-link>
+                    </div>
+
                 @if (Auth::user()->hasRole('administrator'))
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('dashboard.usermanagement')" :active="request()->routeIs('dashboard.usermanagement')">
@@ -35,6 +35,7 @@
             </div>
 
             <!-- Settings Dropdown -->
+        @if(!Auth::guest())
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -74,7 +75,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-
+        @endif
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -96,24 +97,25 @@
         </div>
 
         <!-- Responsive Settings Options -->
+        @if(!Auth::guest())
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 <div class="flex-shrink-0">
                     @if (Auth::user()->hasRole('user'))
-            <x-responsive-nav-link :href="route('dashboard.myprofile')">
-                    <svg class="h-10 w-10 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
+                        <x-responsive-nav-link :href="route('dashboard.myprofile')">
+                            <svg class="h-10 w-10 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
                 </div>
 
                     <div class="ml-3">
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                         </x-responsive-nav-link>
-                </div>
+            </div>
 
                 @endif
-            </div>
+        </div>
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
@@ -128,6 +130,9 @@
                 </form>
             </div>
         </div>
+        @endif
+
+
     </div>
 </nav>
 

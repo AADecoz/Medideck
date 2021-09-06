@@ -12,22 +12,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('index', function (){
-//    return view('index');
+//Route::get('register', function (){
+//    return view('register');
 //});
 //
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+//Route::group(['middleware'=>['auth']], function (){
+//Route::get('main', '\App\Http\Controllers\DashboardController@main')->name('main');
+//});
 
 Route::group(['middleware'=>['auth']], function (){
-Route::get('main', '\App\Http\Controllers\DashboardController@main')->name('main');
+    Route::get('/dashboard/eventscope', '\App\Http\Controllers\DashboardController@eventscope')->name('dashboard.eventscope');
 });
 
-
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
+//Route::group(['middleware'=>['auth']], function (){
+//    Route::get('dashboard/eventscope', 'App\Http\Controllers\DashboardController@eventscope')->name('eventscope');
+//});
 
 Route::group(['middleware'=>['auth']], function(){
     Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');

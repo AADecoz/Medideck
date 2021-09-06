@@ -30,7 +30,7 @@ return [
             'records' => 'c,r,u'
 
         ],
-        'specialist' => [
+        'target' => [
             'user' => 'r',
             'profile' => 'r,u',
             'records' => 'c,r',

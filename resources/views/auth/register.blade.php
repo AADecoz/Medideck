@@ -13,22 +13,6 @@
             @csrf
 
             <!-- Name -->
-                @includeIf()
-                <div class="mt-4 pb-2">
-                    <x-label for="company" value="{{__('Company:')}} "/>
-                    <select name="company" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-
-                        <option value="abbott">Abbott</option>
-                        <option value="abbvie">Abbvie</option>
-                        <option value="aegerion">Aegerion Pharmaceuticals</option>
-                        <option value="abello">Alk Abello</option>
-                        <option value="amgen">Amgen</option>
-                        <option value="astellas">Astellas Pharma</option>
-                        <option value="astra">AstraZenica</option>
-                    </select>
-                </div>
-
-
 
                 <div>
                 <x-label for="name" :value="__('Name')" />
@@ -67,11 +51,25 @@
                     <x-label for="role_id" value="{{__('Register as:')}}"/>
                     <select name="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
                         <option value="user" >User</option>
-                        <option value="target">Specialist</option>
+                        <option value="target" >Specialist</option>
+                        <option value="moderator" >Moderator</option>
+                        <option value="administrator" >Admin</option>
                     </select>
                 </div>
 
-            <div class="flex items-center justify-center justify-between mt-4">
+                {{--                @if()--}}
+                {{--                <div class="mt-4 pb-2">--}}
+                {{--                    <x-label for="company" value="{{__('Company:')}} "/>--}}
+                {{--                    <select name="company" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">--}}
+                {{--                        @foreach($sender as $senders)--}}
+                {{--                        <option value="{{$senders->sender_id}}">{{$senders->sender_name}}</option>--}}
+                {{--                        @endforeach--}}
+                {{--                    </select>--}}
+
+                {{--                </div>--}}
+
+
+                <div class="flex items-center justify-center justify-between mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>

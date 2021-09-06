@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -35,4 +36,13 @@ class DashboardController extends Controller
     public function main(){
         return view('main');
     }
+    public function eventscope(){
+        return view('eventscope');
+    }
+
+//    public function sender()
+//    {
+//        $sender = Sender::all();
+//     return view('register', compact('sender'));
+//    }
 }
