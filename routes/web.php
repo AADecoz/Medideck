@@ -20,9 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'index'])->name('sender');
+//Route::get('register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'index'])->name('sender');
 
-//Route::resource('sender', [\App\Http\Controllers\SenderController::class, "index"]);
+Route::get('/test', [\App\Http\Controllers\SenderController::class, "index"]);
+
+//Route::get('/register', [\App\Http\Controllers\SenderController::class, "index"]);
+
+//Route::get('/test', ['\App\Http\Controllers\SenderController::class@index']);
 
 Route::group(['middleware'=>['auth']], function (){
     Route::get('/dashboard/dmscope', 'App\Http\Controllers\DashboardController@dmscope')->name('dashboard.dmscope');
@@ -31,10 +35,6 @@ Route::group(['middleware'=>['auth']], function (){
 Route::group(['middleware'=>['auth']], function (){
     Route::get('/dashboard/eventscope', '\App\Http\Controllers\DashboardController@eventscope')->name('dashboard.eventscope');
 });
-
-//Route::group(['middleware'=>['auth']], function (){
-//    Route::get('dashboard/eventscope', 'App\Http\Controllers\DashboardController@eventscope')->name('eventscope');
-//});
 
 Route::group(['middleware'=>['auth']], function(){
     Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');

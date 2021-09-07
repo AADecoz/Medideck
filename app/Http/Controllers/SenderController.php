@@ -16,8 +16,8 @@ class SenderController extends Controller
      */
     public function index()
     {
-        $sender = DB::table('senders')->pluck('sender_name');
-        return view('register', compact('sender'));
+        $sender = DB::table('senders')->get();
+        return view('/register', compact('sender'));
     }
 
     /**
@@ -27,7 +27,8 @@ class SenderController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $sender = Sender::all('sender_id', 'sender_name');
+        return view('test', compact('sender'));
     }
 
     /**
