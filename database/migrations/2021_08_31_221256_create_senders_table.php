@@ -16,6 +16,7 @@ class CreateSendersTable extends Migration
         Schema::create('senders', function (Blueprint $table) {
             $table->id('sender_id');
             $table->string('sender_name');
+            $table->unique('sender_name');
             $table->engine = 'InnoDB';
         });
     }
