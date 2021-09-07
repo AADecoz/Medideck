@@ -34,7 +34,8 @@
                             <td>{{$users->name}}</td>
                             <td><a href="mailto:{{$users->email}}" class="p-2 hover:text-blue-900">{{$users->email}}</a></td>
                             <td>Logged In</td>
-                            <td></td>
+                            <td>Glaxo Smith Kline</td>
+                            <td>Immunologie, Endocrinologie</td>
                             <td><x-button class="ml-3" style="background: rgb(0,120,98)">
                                 {{ __('Show') }}
                             </x-button></td>
