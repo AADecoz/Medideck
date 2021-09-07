@@ -58,15 +58,15 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        @if(Auth::user()->hasRole('user'))
+                        @if(!Auth::user()->hasRole('administrator')||!Auth::user()->hasRole('moderator'))
                         <x-dropdown-link :href="route('dashboard.myprofile')" :active="request()->routeIs('dashboard.myprofile')">
                             {{__('My Profile')}}
                         </x-dropdown-link>
-                            <x-dropdown-link :href="route('dashboard.myprofile')" :active="request()->routeIs('dashboard.myprofile')">
-                            {{__('My Profile')}}
+                            <x-dropdown-link :href="route('dashboard.myentries')" :active="request()->routeIs('dashboard.myprofile')">
+                            {{__('My Entries')}}
                         </x-dropdown-link>
                             <x-dropdown-link :href="route('dashboard.myprofile')" :active="request()->routeIs('dashboard.myprofile')">
-                            {{__('My Profile')}}
+                            {{__('My Logs')}}
                         </x-dropdown-link>
                         @endif
                         <form method="POST" action="{{ route('logout') }}">

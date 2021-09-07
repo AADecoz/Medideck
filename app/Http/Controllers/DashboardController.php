@@ -44,9 +44,8 @@ class DashboardController extends Controller
         return view('dmscope');
     }
 
-//    public function sender()
-//    {
-//        $sender = Sender::all();
-//     return view('register', compact('sender'));
-//    }
+    public function myentries()
+    {
+       return view('myentries');
+    }
 }

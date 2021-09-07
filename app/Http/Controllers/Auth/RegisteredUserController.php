@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
+//use App\Http\Controllers\Auth\Validator;
+use Illuminate\Support\Facades\Validator;
+//use App\User;
 
 class RegisteredUserController extends Controller
 {
-//    public function index()
-//    {
-//        $sender = DB::table('senders')->get();
-//        return view('/register', compact('sender'));
-//    }
+
 
     /**
      * Display the registration view.
@@ -50,9 +49,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-//        Validator::make($request->all(), [
-//            'sender' => Rule::requiredIf($request->user()->is_user),
-//        ]);
+        Validator::make($request->all(), [
+            'sender_id' => 'requiredIf:role_id,user'
+        ]);
 
 
         $user = User::create([
@@ -61,7 +60,6 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-//        $user->attachRole($request->sender_id);
         $user->attachRole($request->role_id);
 
 
