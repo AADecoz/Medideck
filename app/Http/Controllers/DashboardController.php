@@ -6,6 +6,8 @@ use App\Models\Sender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 
 class DashboardController extends Controller
 {
@@ -30,12 +32,21 @@ class DashboardController extends Controller
 
     public function usermanagement(){
 //      $subscription = Subcription::all();
+        $sender = Sender::all();
         $user = User::all();
-        return view('usermanagement', compact('user'));
+        return view('usermanagement', compact('user', 'sender'));
     }
+
+    public function companymanagement(){
+        $sender = Sender::all();
+        $user = User::all();
+        return view('companymanagement', compact('user', 'sender'));
+    }
+
     public function main(){
         return view('main');
     }
+
     public function eventscope(){
         return view('eventscope');
     }
@@ -44,8 +55,10 @@ class DashboardController extends Controller
         return view('dmscope');
     }
 
-    public function myentries()
-    {
+    public function myentries(){
        return view('myentries');
     }
+//    public function single(){
+//        return view('/')
+//    }
 }

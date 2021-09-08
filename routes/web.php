@@ -43,5 +43,13 @@ Route::group(['middleware'=>['auth', 'role:administrator' ]], function(){
     Route::get('/dashboard/usermanagement','App\Http\Controllers\DashboardController@usermanagement')->name('dashboard.usermanagement');
 });
 
+Route::group(['middleware'=>['auth', 'role:administrator' ]], function(){
+    Route::get('/dashboard/companymanagement','App\Http\Controllers\DashboardController@companymanagement')->name('dashboard.companymanagement');
+});
+
+//Route::group(['middleware'=>['auth', 'role:administrator']], function (){
+//    Route::get('/dashboard/usermanagement', 'App\Http\Controllers\DashboardController@');
+//}
+
 
 require __DIR__.'/auth.php';

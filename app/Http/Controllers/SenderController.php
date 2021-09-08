@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use voku\helper\ASCII;
 use Illuminate\Support\Facades\DB;
 use App\Models\Sender;
+use App\Models\User;
 
 class SenderController extends Controller
 {
@@ -19,6 +20,10 @@ class SenderController extends Controller
         $sender = DB::table('senders')->get();
         return view('/register', compact('sender'));
     }
+
+//    public function management(){
+//        $sender = DB::table('sender')->get('sender_name')->where('sender_id', $user->sender_id);
+//    }
 
     /**
      * Show the form for creating a new resource.

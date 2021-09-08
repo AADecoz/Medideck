@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
         ]);
 
         Validator::make($request->all(), [
-            'sender_id' => 'requiredIf:role_id,user'
+            'sender_id' => 'requiredIf:role_id,5'
         ]);
 
 

@@ -1,8 +1,7 @@
-<link href="{{ asset('css/table.css') }}" rel="stylesheet">
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('User management') }}
+            {{ __('Company management') }}
         </h2>
     </x-slot>
 
@@ -19,35 +18,35 @@
                     <table class="table-fixed shadow-md">
                         <tr>
                             <th>ID</th>
-                            <th>User</th>
+                            <th>Company</th>
                             <th>Email</th>
-                            <th>Status</th>
+                            <th>Expires</th>
                             <th>Company</th>
                             <th>Subscriptions</th>
-{{--                            <th>{{$user->sender_id}}</th>--}}
+                            {{--                            <th>{{$user->sender_id}}</th>--}}
                             <th></th>
                             <th></th>
                         </tr>
 
-                    @foreach($user as $users)
+{{--                        @foreach($user as $users)--}}
                             <tr>
-                            <td class="p-2">{{$users->id}}</td>
-                            <td>{{$users->name}}</td>
-                            <td><a href="mailto:{{$users->email}}" class="p-2 hover:text-blue-900">{{$users->email}}</a></td>
-                            <td>Logged In</td>
-                            <td>{{$sender[($users->sender_id)-1]->sender_name}}</td>
-{{--                            <td><label><input type="checkbox" class="text-indigo-500 w-8 h-8 mr-2 focus:ring-indigo-400 focus:ring-opacity-25 border border-gray-300 rounded" name="subscription" value=""><span>Immunologie</span></label></td>--}}
-                            <td><x-button class="ml-3 shadow-md" style="background: rgb(0,120,98)">
-                                {{ __('Show') }}
-                            </x-button></td>
-                            <td><x-button class="ml-3 shadow-md" style="background: rgb(9,40,105)">
-                                {{ __('Edit') }}
-                            </x-button></td>
-                            <td><x-button class="ml-3 bg-red-600 shadow-md">
-                                    {{ __('Delete') }}
-                            </x-button></td>
+                                <td class="p-2"></td>
+                                <td></td>
+                                <td><a href="mailto:" class="p-2 hover:text-blue-900"></a></td>
+                                <td>Logged In</td>
+                                <td></td>
+                                {{--                            <td><label><input type="checkbox" class="text-indigo-500 w-8 h-8 mr-2 focus:ring-indigo-400 focus:ring-opacity-25 border border-gray-300 rounded" name="subscription" value=""><span>Immunologie</span></label></td>--}}
+                                <td><x-button class="ml-3 shadow-md" style="background: rgb(0,120,98)">
+                                        {{ __('Show') }}
+                                    </x-button></td>
+                                <td><x-button class="ml-3 shadow-md" style="background: rgb(9,40,105)">
+                                        {{ __('Edit') }}
+                                    </x-button></td>
+                                <td><x-button class="ml-3 bg-red-600 shadow-md">
+                                        {{ __('Delete') }}
+                                    </x-button></td>
                             </tr>
-                    @endforeach
+{{--                        @endforeach--}}
 
                     </table>
                 </div>
