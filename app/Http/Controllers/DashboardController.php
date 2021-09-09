@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Indication;
 use App\Models\Sender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,13 +53,14 @@ class DashboardController extends Controller
     }
 
     public function dmscope(){
-        return view('dmscope');
+        $indication = Indication::all();
+        return view('dmscope', compact('indication'));
     }
 
     public function myentries(){
        return view('myentries');
     }
 //    public function single(){
-//        return view('/')
+//        return view('');
 //    }
 }

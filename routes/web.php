@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +49,8 @@ Route::group(['middleware'=>['auth', 'role:administrator' ]], function(){
 });
 
 //Route::group(['middleware'=>['auth', 'role:administrator']], function (){
-//    Route::get('/dashboard/usermanagement', 'App\Http\Controllers\DashboardController@');
-//}
+//    Route::get('/dashboard/usermanagement/', 'App\Http\Controllers\DashboardController@single')->name('');
+//});
 
 
 require __DIR__.'/auth.php';

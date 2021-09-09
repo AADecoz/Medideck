@@ -20,19 +20,30 @@
                 </div>
 
                 <section class="border rounded overflow-hidden flex p-6 justify-between shadow-md">
-                    <div class="flex items-start justify-center p-0 w-2/5 h-96 bg-white text-white shadow-md">
+                    <div class="flex items-start justify-center p-0 w-2/5 bg-white text-white shadow-md">
                         <div class="flex items-center justify-center p-0 w-full h-10 bg-blue-800 text-white shadow-md">
                             {{ __('ATC filtering') }}
                         </div>
 
                     </div>
 
-                    <div class="flex flex-wrap items-start justify-center p-0 w-2/5 h-96 bg-white shadow-md">
+                    <div class="flex flex-wrap items-start justify-start p-0 w-2/5 bg-white shadow-md">
                         <div class="flex items-center justify-center p-0 w-full h-10 bg-blue-800 text-white shadow-md">
                             {{ __('Indication filtering') }}
                         </div>
-                        <div class="flex justify-start w-full bg-gray-50 text-white shadow-md p-4">
-                        <input type="text" class="border rounded-lg w-2/3 h-9 text-black" id="searchdiv">
+                        <div class="w-full text-black shadow-md p-2">
+                        <input type="text" class="border rounded-lg w-2/3 h-9">
+                        </div>
+                        <div class="w-full bg-gray-50 text-black shadow-md p-2">
+                            <label class="block">
+                                <select class="form-multiselect block w-full mt-1" multiple>
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                </select>
+                            </label>
                         </div>
                     </div>
                 </section>
