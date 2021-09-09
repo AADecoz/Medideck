@@ -63,19 +63,19 @@
                     </div>
                 </section>
 
-                <section class="border rounded overflow-hidden flex p-6">
-                    <div class="flex flex-wrap items-start justify-center p-4 w-full bg-yellow-400 shadow-md justify-around">
-                        <label for="Sender">
-                            <input type="text" class="rounded-lg p-2" placeholder="Sender">
-                        </label>
-                        <label for="Target">
-                            <input type="text" class="rounded-lg p-2" placeholder="Target">
-                        </label>
-                        <label for="Product">
-                            <input type="text" class="rounded-lg p-2" placeholder="Product">
-                        </label>
-                    </div>
-                </section>
+{{--                <section class="border rounded overflow-hidden flex p-6">--}}
+{{--                    <div class="flex flex-wrap rounded items-start justify-center p-4 w-full bg-yellow-400 shadow-md justify-around">--}}
+{{--                        <label for="Sender">--}}
+{{--                            <input type="text" class="rounded p-2 h-9" placeholder="Sender">--}}
+{{--                        </label>--}}
+{{--                        <label for="Target">--}}
+{{--                            <input type="text" class="rounded p-2 h-9" placeholder="Target">--}}
+{{--                        </label>--}}
+{{--                        <label for="Product">--}}
+{{--                            <input type="text" class="rounded p-2 h-9" placeholder="Product">--}}
+{{--                        </label>--}}
+{{--                    </div>--}}
+{{--                </section>--}}
 
             </div>
         </div>
