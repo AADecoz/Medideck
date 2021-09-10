@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ATC;
 use App\Models\Indication;
 use App\Models\Sender;
 use Illuminate\Http\Request;
@@ -53,8 +54,9 @@ class DashboardController extends Controller
     }
 
     public function dmscope(){
+        $atc = ATC::all();
         $indication = Indication::all();
-        return view('dmscope', compact('indication'));
+        return view('dmscope', compact('indication', 'atc'));
     }
 
     public function myentries(){

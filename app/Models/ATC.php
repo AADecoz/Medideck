@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 class ATC extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
+    protected $table = 'Atccodes';
 
     /**
      * The attributes that are mass assignable.
