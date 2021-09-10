@@ -1,3 +1,4 @@
+<link href="{{ asset('css/table.css') }}" rel="stylesheet">
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -28,12 +29,12 @@
                             <th></th>
                         </tr>
 
-{{--                        @foreach($user as $users)--}}
+                        @foreach($sender as $senders)
                             <tr>
-                                <td class="p-2"></td>
+                                <td class="p-2">{{$senders->id}}</td>
+                                <td>{{$senders->sender_name}}</td>
+                                <td><a href="mailto:{{$senders->mail}}" class="p-2 hover:text-blue-900"></a></td>
                                 <td></td>
-                                <td><a href="mailto:" class="p-2 hover:text-blue-900"></a></td>
-                                <td>Logged In</td>
                                 <td></td>
                                 {{--                            <td><label><input type="checkbox" class="text-indigo-500 w-8 h-8 mr-2 focus:ring-indigo-400 focus:ring-opacity-25 border border-gray-300 rounded" name="subscription" value=""><span>Immunologie</span></label></td>--}}
                                 <td><x-button class="ml-3 shadow-md" style="background: rgb(0,120,98)">
@@ -46,7 +47,7 @@
                                         {{ __('Delete') }}
                                     </x-button></td>
                             </tr>
-{{--                        @endforeach--}}
+                        @endforeach
 
                     </table>
                 </div>
