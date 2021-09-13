@@ -1,3 +1,4 @@
+<link href="{{ asset('css/table.css') }}" rel="stylesheet">
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -11,7 +12,7 @@
                 <div class="flex items-center justify-between p-6 bg-white border-b border-gray-200">
                     Welcome in DMscope!
                     @if(Auth::user()->hasRole('administrator'))
-                        <x-button class="ml-3 shadow-md bg-blue-800 h-10 "> {{ __('Create New Record') }} </x-button>
+                        <x-button class="ml-3 shadow-md bg-blue-800 h-10 font-bold"> {{ __('Create New Record') }} </x-button>
                     @endif
                 </div>
 
@@ -28,8 +29,8 @@
 {{--                Adding Tailwind Alpine Tag Multi Select https://codepen.io/atomgiant/pen/QWjWgKz --}}
 
                 <section class="border rounded overflow-hidden flex p-6 justify-between">
-                    <div class="flex flex-wrap items-start rounded justify-center p-0 w-2/5 bg-white text-white shadow-md">
-                        <div class="flex items-center justify-center rounded p-0 w-full h-10 bg-blue-800 text-white shadow-md">
+                    <div class="flex flex-wrap items-start rounded justify-center p-0 w-5/12 bg-white text-white shadow-md">
+                        <div class="flex items-center justify-center rounded p-0 w-full h-10 bg-blue-800 text-white shadow-md font-bold">
                             {{ __('ATC filtering') }}
                         </div>
                         <div class="w-full text-black p-2">
@@ -37,7 +38,7 @@
                         </div>
                         <div class="w-full bg-gray-50 text-black shadow-md p-2 rounded">
                             <label class="block">
-                                <select class="form-multiselect block w-full mt-1 rounded overflow-hidden" multiple>
+                                <select class="form-multiselect block w-full mt-1 rounded overflow-x-hidden h-52" multiple>
                                     @foreach($atc as $atcs)
                                         <option value="{{$atcs->id}}">{{$atcs->atc_code}}-{{$atcs->atc_content}}</option>
                                     @endforeach
@@ -47,8 +48,8 @@
 
                     </div>
 
-                    <div class="flex flex-wrap items-start justify-start p-0 w-2/5 bg-white shadow-md rounded">
-                        <div class="flex items-center justify-center p-0 w-full h-10 bg-blue-800 text-white shadow-md rounded">
+                    <div class="flex flex-wrap items-start justify-start p-0 w-5/12 bg-white shadow-md rounded">
+                        <div class="flex items-center justify-center p-0 w-full h-10 bg-blue-800 text-white shadow-md rounded font-bold">
                             {{ __('Indication filtering') }}
                         </div>
                         <div class="w-full text-black p-2">
@@ -56,9 +57,9 @@
                         </div>
                         <div class="w-full bg-gray-50 text-black shadow-md p-2 rounded ">
                             <label class="block">
-                                <select class="form-multiselect block h-50 w-full mt-1 rounded overflow-hidden" multiple>
+                                <select class="form-multiselect block w-full mt-1 rounded overflow-x-hidden h-52" multiple>
                                 @foreach($indication as $indications)
-                                    <option value="{{$indications->id}}">{{$indications->name}}</option>
+                                    <option value="{{$indications->id}}">{{$indications->indication_name}}</option>
                                 @endforeach
                                 </select>
                             </label>
@@ -67,7 +68,7 @@
                 </section>
 
                 <section class="border rounded overflow-hidden flex p-6">
-                    <div class="flex flex-wrap rounded items-start justify-center p-4 w-full bg-green-700 shadow-md justify-around">
+                    <div class="flex flex-wrap rounded items-start justify-center p-4 w-full bg-green-700 shadow-md justify-between">
                         <label for="Sender">
                             <input type="text" class="rounded p-2 h-9" placeholder="Sender">
                         </label>
@@ -78,6 +79,44 @@
                             <input type="text" class="rounded p-2 h-9" placeholder="Product">
                         </label>
                     </div>
+                </section>
+
+                <section class="w-full">
+                    <table class="table-fixed shadow-md">
+                        <tr>
+                            <th>ATC</th>
+                            <th>Product</th>
+                            <th>Item</th>
+                            <th>Date</th>
+                            <th>Format</th>
+                            <th>Sender</th>
+                            <th>Target</th>
+                            <th>Theme</th>
+                        </tr>
+
+{{--                        @foreach($record as $records)--}}
+                        <tr>
+{{--                            <td>{{$records->atc}}</td>--}}
+{{--                            <td>{{$records->product}}</td>--}}
+{{--                            <td>{{$records->item}}</td>--}}
+{{--                            <td>{{$records->date}}</td>--}}
+{{--                            <td>{{$records->format}}</td>                               --}}
+{{--                            <td>{{$records->sender}}</td>                               --}}
+{{--                            <td>{{$records->target}}</td>                               --}}
+{{--                            <td>{{$records->theme}}</td>                               --}}
+
+                            <td>A02AA</td>
+                            <td>Prodaxa</td>
+                            <td>34</td>
+                            <td>03-05-2011</td>
+                            <td>E-mail</td>
+                            <td>AstraZenica</td>
+                            <td>Cardioloog</td>
+                            <td>New Recipe for arthrium fibrilatie goedgekeurd door EMA</td>
+                        </tr>
+{{--                        @endforeach--}}
+
+                    </table>
                 </section>
 
 
