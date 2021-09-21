@@ -15,6 +15,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 //use App\Http\Controllers\Auth\Validator;
 use Illuminate\Support\Facades\Validator;
+use App\Events\LoginHistory;
 //use App\User;
 
 class RegisteredUserController extends Controller
@@ -50,7 +51,7 @@ class RegisteredUserController extends Controller
         ]);
 
         Validator::make($request->all(), [
-            'sender_id' => 'requiredIf:role_id,5'
+            'sender_id' => 'required_if:role_id,5'
         ]);
 
 

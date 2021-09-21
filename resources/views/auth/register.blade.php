@@ -61,7 +61,7 @@
                 <div class="mt-4 pb-2">
                     <x-label for="company" value="{{__('Company:')}} "/>
                     <select name="sender_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                        <option selected value> -- required for users -- </option>
+                        <option selected value> -- required for all -- </option>
                         @foreach($sender as $senders)
                         <option value="{{$senders->sender_id}}">{{$senders->sender_name}}</option>
                         @endforeach
