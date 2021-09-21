@@ -16,6 +16,8 @@ use Illuminate\Validation\Rules;
 //use App\Http\Controllers\Auth\Validator;
 use Illuminate\Support\Facades\Validator;
 use App\Events\LoginHistory;
+use App\Notifications\ExampleNotification;
+
 //use App\User;
 
 class RegisteredUserController extends Controller
@@ -70,6 +72,18 @@ class RegisteredUserController extends Controller
 
         $user = Auth::user();
         event(new LoginHistory($user));
+
+
+        $mailData = [
+            'greeting'=>'Goedendag',
+            'bodyMail'=>'Stoemerik',
+            'urlTekst'=>'Ga naar dashboard',
+            'url'=>url('/dashboard'),
+            'ending'=>'Yours Faithfully',
+        ];
+        $user->notify(new ExampleNotification($mailData));
+
+
 
         return redirect(RouteServiceProvider::HOME);
     }
